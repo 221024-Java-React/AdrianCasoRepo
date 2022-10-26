@@ -9,12 +9,12 @@ public class Lab3 {
 	}
 	
 	// this will still return true if sequence of characters is in inputWord and not necessarily an entire word
-	public static boolean containsWord(String inputWord, String searchWord) {
+	public boolean containsWord(String inputWord, String searchWord) {
 		String inputWordLowerCase = inputWord.toLowerCase();
 		return inputWordLowerCase.contains(searchWord);
 	}
 	
-	public static String[] splitPhoneNumber(String phoneNumber) {
+	public String[] splitPhoneNumber(String phoneNumber) {
 		return phoneNumber.split("-");
 		
 	}
