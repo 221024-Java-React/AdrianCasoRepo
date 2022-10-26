@@ -1,6 +1,5 @@
 package labs;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -62,12 +61,16 @@ public class Lab5 {
 	
 	public static void main(String[] args) {
 		
+		// intialize empty board
 		char[][] board = {{'_', '_', '_'},{'_', '_', '_'},{'_', '_', '_'}};
 		
+		// initialize currentPlayer set as 1
 		int currentPlayer = 1;
 		
+		// instantiate class to gain access to methods
 		Lab5 game = new Lab5();
 		
+		// instantiate scanner to get user input
 		Scanner scan = new Scanner(System.in);
 		
 		// start game
