@@ -20,11 +20,11 @@ public class PremiumCustomer extends Customer implements Premium {
 		return discountedPrice;
 	}
 	
-	// empties cart, subtracts the total price of all objects in cart from balance, resets cart cost to 0
+	// empties cart, subtracts the discounted price of all objects in cart from balance, resets cart cost to 0
 	@Override
 	public void buy() {
 		this.items = "";
-		this.balance -= this.cartCost;
+		this.balance -= discountPrice(this.cartCost);
 		this.cartCost = 0;
 		
 	}
