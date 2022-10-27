@@ -1,5 +1,7 @@
 package lab6;
 
+import lab7.OverBalanceException;
+
 public class PremiumCustomer extends Customer implements Premium {
 	
 	private int vipCard;
@@ -22,18 +24,29 @@ public class PremiumCustomer extends Customer implements Premium {
 	
 	// empties cart, subtracts the discounted price of all objects in cart from balance, resets cart cost to 0
 	@Override
-	public void buy() {
-		this.items = "";
-		this.balance -= discountPrice(this.cartCost);
-		this.cartCost = 0;
+	public void buy() throws OverBalanceException{
+		
+		if(discountPrice(this.cartCost) > this.balance) {
+			throw new OverBalanceException("Sorry, you do not have enough money in your account.");
+		} else {
+			this.items = "";
+			this.balance -= discountPrice(this.cartCost);
+			this.cartCost = 0;
+		}
+		
+		
 		
 	}
 	
 	@Override
 	public String toString() {
-		return "Customer Name: " + this.name + "\n" + "Customer Balance: " +this.balance + "\n" 
-				+ "Items in Cart: " + this.items + "\n" + "Cost of all Items in Cart: " + this.cartCost + "\n" 
-				+ "Customer Status: " +Premium.title + "\n" + "VIP Card Number: " + this.vipCard + "\n" + "Years Subscribed: " + this.years;
+		return "Customer Name: " + this.name + "\n" 
+				+ "Customer Balance: " +this.balance + "\n" 
+				+ "Items in Cart: " + this.items + "\n" 
+				+ "Cost of all Items in Cart: " + this.cartCost + "\n" 
+				+ "Customer Status: " +Premium.title + "\n" 
+				+ "VIP Card Number: " + this.vipCard + "\n" 
+				+ "Years Subscribed: " + this.years;
 	}
 
 

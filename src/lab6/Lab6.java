@@ -1,6 +1,6 @@
 package lab6;
 
-
+import lab7.OverBalanceException;
 
 public class Lab6 {
 
@@ -10,7 +10,11 @@ public class Lab6 {
 
 		premiumCustomer.addToCart("Sugar_Large", 10);
 		
-		premiumCustomer.buy();
+		try {
+			premiumCustomer.buy();
+		} catch (OverBalanceException e) {
+			e.printStackTrace();
+		}
 		
 		
 		

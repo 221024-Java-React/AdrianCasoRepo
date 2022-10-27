@@ -1,5 +1,7 @@
 package lab6;
 
+import lab7.OverBalanceException;
+
 public abstract class Customer {
 	
 	public String name;
@@ -25,7 +27,7 @@ public abstract class Customer {
 		items = items + " " + item;
 	}
 	
-	public abstract void buy();
+	public abstract void buy() throws OverBalanceException;
 	
 
 }
